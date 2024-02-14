@@ -6,7 +6,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "vrajatcreations"
+rootProject.name = "sandeep"
 
 include(":site")
 

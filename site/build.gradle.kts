@@ -1,5 +1,6 @@
 import com.varabyte.kobweb.gradle.application.extensions.AppBlock.LegacyRouteRedirectStrategy
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
+import kotlinx.html.link
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -8,15 +9,17 @@ plugins {
     // alias(libs.plugins.kobwebx.markdown)
 }
 
-group = "com.vrajatcreations"
+group = "com.sandeep"
 version = "1.0-SNAPSHOT"
 
 kobweb {
     app {
         index {
             description.set("Powered by Kobweb")
+            head.add {
+                link(rel="stylesheet", href="./fonts/faces.css")
+            }
         }
-
         // Only legacy sites need this set. Sites built after 0.16.0 should default to DISALLOW.
         // See https://github.com/varabyte/kobweb#legacy-routes for more information.
         legacyRouteRedirectStrategy.set(LegacyRouteRedirectStrategy.DISALLOW)
@@ -24,7 +27,7 @@ kobweb {
 }
 
 kotlin {
-    configAsKobwebApplication("vrajatcreations")
+    configAsKobwebApplication("sandeep")
 
     sourceSets {
         commonMain.dependencies {
@@ -36,7 +39,7 @@ kotlin {
             implementation(libs.kobweb.core)
             implementation(libs.kobweb.silk)
             implementation(libs.silk.icons.fa)
-            // implementation(libs.kobwebx.markdown)
+//             implementation(libs.kobwebx.markdown)
             
         }
     }
